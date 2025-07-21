@@ -40,12 +40,69 @@ public class Exercise01 {
                     }
                     break;
                 case 3:
-                    int sum = 0;
+                    float sum = 0;
                     for (int i = 0; i < currentElement; i++) {
                         sum += scores[i];
                     }
                     System.out.println("Diem TB "+ (sum/currentElement));
                     break;
+                case 4:
+                    // b1 coi phan tu dau tien gian voi gia tri max
+                    // b2 duyet qua các phan từ từ 1 đến cuốt
+                    // b3 so sánh nếu giá trị max nhỏ hơn giá trị của phần tử thì max = score[i]
+                    float max = scores[0];
+                    for (int i = 1; i < currentElement; i++) {
+                        if(max < scores[i]){
+                            max = scores[i];
+                        }
+                    }
+                    System.out.println("Diem cao nhat "+max);
+                    break;
+                case 5:
+                    // dem so luong sinh vien dat va truot (<5)
+                    int countStudentFail = 0;
+                    int countStudentPass = 0;
+                    for (int i = 0; i < currentElement; i++) {
+                        if(scores[i] >= 5){
+                            countStudentPass++;
+                        } else {
+                            countStudentFail++;
+                        }
+                    }
+                    System.out.println("Tong so luong sv dat : "+countStudentPass);
+                    System.out.println("Tong so luong sv truot : "+countStudentFail);
+                    break;
+                case 6:
+                    // sắp xếp điểm tăng dần 
+                    for (int i = 0; i < currentElement; i++) {
+                        for (int j = i+1; j < currentElement; j++) {
+                            if(scores[i] > scores[j]){
+                                // hoan doi gia tri cua phan tu i vs j
+                                float temp = scores[i];
+                                scores[i] = scores[j];
+                                scores[j] = temp;
+                            }
+                        }
+                    }
+                    //
+                    System.out.println(" sau khi sap xep tang dan :");
+                    for (int i = 0; i < currentElement; i++) {
+                        System.out.printf("%.1f \t",scores[i]);
+                    }
+
+                    break;
+                case 7:
+                    // thong ke so luong sinh vien gioi (>=8)
+                    int countStudentGood = 0;
+                    for (int i = 0; i < currentElement; i++) {
+                        if(scores[i] >=8){
+                            countStudentGood++;
+                        }
+                    }
+                    System.out.println("So luong sinh vien gioi la "+countStudentGood);
+                    break;
+                case 8:
+                    System.exit(0);
                 default:
                     System.err.println("Vui long chọn lai");
             }
